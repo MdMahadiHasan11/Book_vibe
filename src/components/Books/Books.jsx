@@ -11,7 +11,7 @@ const Books = () => {
         .then( data => setBooksAll(data));
 
     },[])
-    console.log(booksAll);
+    // console.log(booksAll);
     return (
         <div>
             <div className="grid grid-cols-3 gap-6">
