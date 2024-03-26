@@ -7,12 +7,34 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Root from './components/Root/Root';
+import Home from './components/Home/Home';
+import ListedBook from './components/ListedBook/ListedBook';
+import PagesToRead from './components/PagesToRead/PagesToRead';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Root></Root>,
+    children:[
+    {
+      path:'/',
+      element: <Home></Home>
+    },
+    {
+      path:'/listedBook',
+      element: <ListedBook></ListedBook>
+    },
+    {
+      path:'/PagesToRead',
+      element:<PagesToRead></PagesToRead>
+    },
+    {
+      
+    }
+
+  ]
   },
 ]);
 
