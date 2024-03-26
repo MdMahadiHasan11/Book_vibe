@@ -1,9 +1,11 @@
+import Books from "../Books/Books";
 
 
 const Home = () => {
     return (
         <div>
-            <p>inside home</p>
+            <div>inside home banner</div>
+            <div><Books></Books></div>
         </div>
     );
 };
