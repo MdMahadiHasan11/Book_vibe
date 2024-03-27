@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+// import { useEffect, useState } from "react";
 // import ListedBook from "../ListedBook/ListedBook";
 // import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -23,21 +24,34 @@ const BookDetails = () => {
     // console.log(book1);
 
 
-    const storeBookIdss = getStoreReadBook();
-    const storeWishIdss = getStoreWishlist();
+    // const storeBookIdss = getStoreReadBook();
+    // const storeWishIdss = getStoreWishlist();
+
+    // const [addBooksid, setAddBooksid] = useState([]);
+    // const [addWishid, setAddWishid] = useState([]);
+
+    // useEffect(() => {
+    //     const storeBookIds = getStoreReadBook();
+    //     const storeWishIds = getStoreWishlist();
+    //     // setAddBooksid(storeBookIds);
+    //     // setAddWishid(storeWishIds);
+    
+    // }, [])
     // const storeBookIdss = localStorage.getItem('read-mark');
+    const storeBookIds = getStoreReadBook();
+        const storeWishIds = getStoreWishlist();
 
 
 
 
     const handleRead = (bookId) => {
 
-        const isExist = storeBookIdss.find(id => id === parseInt(bookId));
+      
+        const isExist = storeBookIds.find(id => id === parseInt(bookId));
 
 
         if (!isExist) {
-            // storeReadBook.push(bookId);
-            // toast('Success read')
+     
             saveReadBook(parseInt(bookId));
             toast('Books Added to Read List')
 
@@ -57,8 +71,8 @@ const BookDetails = () => {
 
 
 
-        const isExist = storeWishIdss.find(id => id === parseInt(bookId))
-        const isExist2 = storeBookIdss.find(id => id === parseInt(bookId));
+        const isExist = storeWishIds.find(id => id === parseInt(bookId))
+        const isExist2 = storeBookIds.find(id => id === parseInt(bookId));
 
 
         if (!(isExist || isExist2)) {

@@ -8,6 +8,7 @@ const getStoreReadBook = ()=>{
 }
 
 const saveReadBook = bookId =>{
+
     const storeReadBook = getStoreReadBook();
     const exist = storeReadBook.find( id => id === bookId);
     if(!exist){
