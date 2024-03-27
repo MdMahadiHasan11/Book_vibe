@@ -6,13 +6,13 @@ import { FaUserFriends } from "react-icons/fa";
 const DisplayShow = ({ bookmark }) => {
     const { image, bookName, author, tags, publisher, rating, yearOfPublishing, category, totalPages } = bookmark;
     return (
-        <div className=" border rounded-2xl p-4 my-8 ">
+        <div className=" border border-gray-500 rounded-2xl p-4 my-8 ">
             <div className=" flex gap-8 ">
-                <div className='bg-base-200'>
+                <div className=' flex items-center justify-center w-2/6 '>
                     <img src={image} className=" p-14 rounded-lg shadow-2xl" />
                 </div>
 
-                <div>
+                <div className='flex flex-col w-full '>
                     <h1 className="text-3xl font-bold my-3">{author}</h1>
                     <h3 className='font-semibold my-3'>By: {bookName}</h3>
                     <div className='flex gap-10 my-4'>
@@ -45,7 +45,7 @@ const DisplayShow = ({ bookmark }) => {
                             </div>
                         </div>
                     </p>
-                    <hr className='my-4'></hr>
+                    <div className='my-4 border-b border-gray-400 flex-1'></div>
                     <div className='flex gap-6 mb-4'>
                         <div className='rounded-2xl text-cyan-500 border bg-emerald-200 px-5 py-3'> Category : {category}</div>
                         <div className='rounded-2xl text-red-500 border bg-red-200 px-5 py-3'> Rating : {rating}</div>
