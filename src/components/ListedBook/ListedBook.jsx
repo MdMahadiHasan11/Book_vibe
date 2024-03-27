@@ -13,8 +13,10 @@ const ListedBook = () => {
     const [displayRead, setDisplayRead] = useState([]);
     const [displayWish, setDisplayWish] = useState([]);
 
+    const [temp, setTemp] = useState([]);
 
-    let temp;
+
+    // let temp;
 
 
     // const handleDisplaySort = sort => {
@@ -41,7 +43,7 @@ const ListedBook = () => {
     const handleDisplayRead = () => {
 
         setDisplayAll(displayRead);
-        temp = displayRead;
+        setTemp (displayRead);
 
     }
 
@@ -49,7 +51,7 @@ const ListedBook = () => {
 
         setDisplayAll(displayWish);
 
-        temp = displayWish;
+        setTemp(displayWish);
     }
 
 
