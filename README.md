@@ -4,7 +4,7 @@ Website Name: MyBookshelf
 
 
 ## 🔗 Links
-[[Live Link: https://mybookselfwebassigment8.netlify.app/]](https://mybookselfwebassigment8.netlify.app/)
+[Live Link: https://bookshelfwebsite.netlify.app/](https://bookshelfwebsite.netlify.app/)
 
 
 
