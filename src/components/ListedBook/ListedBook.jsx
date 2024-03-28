@@ -17,10 +17,12 @@ const ListedBook = () => {
     const [displayAll, setDisplayAll] = useState([]);
     const [temp, setTemp] = useState([]);
 
+    // const [temp1, setTemp1] = useState([]);
 
-    
 
-    
+
+
+
 
 
 
@@ -33,23 +35,15 @@ const ListedBook = () => {
 
 
     // Two Button Handle Start
-    const handleDisplayRead = () => {
-        setClicked(true);
-        setClicked1(false);
-
-
-
-        setDisplayAll(appliedData);
-        setTemp(appliedData);
-
-    }
+   
 
     // useEffect(() => {
     //     setDisplayAll(addBooks);
     //   }, [displayAll,addBooks]);
-      
+
 
     const handleDisplayWish = () => {
+        // setTemp1(['']);
 
         setClicked1(true);
         setClicked(false);
@@ -57,6 +51,20 @@ const ListedBook = () => {
         setDisplayAll(appliedWishData);
 
         setTemp(appliedWishData);
+    }
+
+
+
+    const handleDisplayRead = () => {
+        setClicked(true);
+        setClicked1(false);
+
+
+        // setTemp1(appliedData);
+
+        setDisplayAll(appliedData);
+        setTemp(appliedData);
+
     }
     // Two Button Handle End
 
@@ -68,6 +76,7 @@ const ListedBook = () => {
     // sorting function start
 
     const handleDisplaySort = sort => {
+        // setTemp1(['']);
         if (sort === 'rating') {
             const sortedNumbers = temp.slice().sort((a, b) => b.rating - a.rating);
             setDisplayAll(sortedNumbers);
@@ -90,16 +99,17 @@ const ListedBook = () => {
 
 
     // Get local storage Data And Set State Start
-    const [appliedData, setAppliedData] = useState([]);
+    
     const [appliedWishData, setAppliedWishData] = useState([]);
+    const [appliedData, setAppliedData] = useState([]);
     // console.log(appliedData);
 
 
 
-    
-    
 
-    
+
+
+
     useEffect(() => {
         // const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
         // setAppliedData(getDefaultData);
@@ -113,18 +123,28 @@ const ListedBook = () => {
         // const bookAdd = books.filter(book => storeBookIds.includes(book.bookId)
 
         // const wishAdd = books.filter(wish => storeWishIds.includes(wish.bookId))      
-    }, [appliedWishData])
+    }, [])
     // Get local storage Data And Set State Start
 
 
-
+    
+    useEffect(() => {
+        // const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        // setAppliedData(getDefaultData);
+        const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        
+        // setDisplayAll(appliedData)  
+        setAppliedData(getDefaultData);    
+    }, [])
 
     useEffect(() => {
-        const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
-        setAppliedData(getDefaultData);
+        // const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        // setAppliedData(getDefaultData);
         setDisplayAll(appliedData);
+        setTemp(appliedData);
+        // setTemp1(getDefaultData);
 
-    }, [])
+    }, [appliedData])
 
 
 
@@ -172,6 +192,18 @@ const ListedBook = () => {
 
                     }
                 </ul>
+
+
+
+                {/* <ul>
+                    {
+                        temp1.map((bookmark) => <DisplayShow
+                            key={bookmark.bookId}
+                            bookmark={bookmark}
+                        >  </DisplayShow>)
+
+                    }
+                </ul> */}
 
             </div>
 
