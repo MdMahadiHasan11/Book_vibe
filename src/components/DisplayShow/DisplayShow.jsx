@@ -2,19 +2,22 @@ import PropTypes from 'prop-types';
 import { IoLocationOutline } from "react-icons/io5";
 import {  RiPagesFill } from "react-icons/ri";
 import { FaUserFriends } from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
 
 const DisplayShow = ({ bookmark }) => {
-    const { image, bookName, author, tags, publisher, rating, yearOfPublishing, category, totalPages } = bookmark;
+    const { bookId,image, bookName, author, tags, publisher, rating, yearOfPublishing, category, totalPages } = bookmark;
+
+    
     return (
         <div className=" border border-gray-500 rounded-2xl p-4 my-8 ">
-            <div className=" flex gap-8 ">
-                <div className=' flex items-center justify-center w-2/6 '>
-                    <img src={image} className=" p-14 rounded-lg shadow-2xl" />
+            <div className=" flex lg:flex-row flex-col gap-8 ">
+                <div className=' flex items-center justify-center lg:w-2/6 '>
+                    <img src={image} className=" lg:p-14 p-3 rounded-lg shadow-2xl" />
                 </div>
 
                 <div className='flex flex-col w-full '>
-                    <h1 className="text-3xl font-bold my-3">{author}</h1>
-                    <h3 className='font-semibold my-3'>By: {bookName}</h3>
+                    <h1 className="text-3xl font-bold my-3">{bookName}</h1>
+                    <h3 className='font-semibold my-3'>By: {author}</h3>
                     <div className='flex gap-10 my-4'>
                         <p>Tag </p>
                         <div className="flex gap-10">
@@ -49,7 +52,7 @@ const DisplayShow = ({ bookmark }) => {
                     <div className='flex gap-6 mb-4'>
                         <div className='rounded-2xl text-cyan-500 border bg-emerald-200 px-5 py-3'> Category : {category}</div>
                         <div className='rounded-2xl text-red-500 border bg-red-200 px-5 py-3'> Rating : {rating}</div>
-                        <button className="btn bg-green-500 px-5">View Details</button>
+                        <NavLink to={`/bookDetails/${bookId}`}> <button className="btn bg-green-500 px-5">View Details</button></NavLink>
 
                     </div>
                     

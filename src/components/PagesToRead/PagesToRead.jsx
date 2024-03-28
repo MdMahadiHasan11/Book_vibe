@@ -48,16 +48,16 @@ const PagesToRead = () => {
 
 
     return (
+        <div className='container mt-6 mx-auto'>
+            <ResponsiveContainer width="100%" height={500}>
 
-        <ResponsiveContainer width="100%" height={400}>
-
-            <BarChart  data={data} >
-                <CartesianGrid strokeDasharray="3 3" />
-                <YAxis />
-                {/* <Bar dataKey={"totalPages"} fill={colors} stroke='red' /> */}
+                <BarChart data={data} >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <YAxis />
+                    {/* <Bar dataKey={"totalPages"} fill={colors} stroke='red' /> */}
 
 
-                {/* <Bar
+                    {/* <Bar
                 dataKey="totalPages"
                 fill="#8884d8"
                 // shape={<TriangleBar />}
@@ -65,20 +65,20 @@ const PagesToRead = () => {
             >
             </Bar> */}
 
+                    <Tooltip></Tooltip>
+                    <Bar dataKey={"totalPages"} fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                        {data.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                        ))}
+                    </Bar>
 
-                <Bar dataKey={"totalPages"} fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                    {data.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-                    ))}
-                </Bar>
+                    <XAxis dataKey="bookName" />
 
-                <XAxis dataKey="bookName" />
-                <Tooltip></Tooltip>
-            </BarChart>
+                </BarChart>
 
-        </ResponsiveContainer>
+            </ResponsiveContainer>
 
-
+        </div>
 
     );
 

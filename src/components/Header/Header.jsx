@@ -4,11 +4,11 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     const links = < >
         
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/listedBook">Listed Books</NavLink></li>
-        <li><NavLink to="/PagesToRead">Pages to Read</NavLink></li>
-        <li><NavLink to="/Home11">Home11</NavLink></li>
-        <li><NavLink to="/Home22">Home22</NavLink></li>
+        <li className="font-bold"><NavLink to="/">Home</NavLink></li>
+        <li className="font-bold"><NavLink to="/listedBook">Listed Books</NavLink></li>
+        <li className="font-bold"><NavLink to="/PagesToRead">Pages to Read</NavLink></li>
+        <li className="font-bold"><NavLink to="/NewBooks">New Books</NavLink></li>
+        <li className="font-bold"><NavLink to="/AllView">All View Books</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">

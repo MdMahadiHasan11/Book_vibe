@@ -26,7 +26,7 @@ const ListedBook = () => {
 
 
     // clicked check
-    const [clicked, setClicked] = useState(false);
+    const [clicked, setClicked] = useState(true);
     const [clicked1, setClicked1] = useState(false);
 
 
@@ -45,8 +45,8 @@ const ListedBook = () => {
     }
 
     // useEffect(() => {
-    //     setDisplayAll(appliedData);
-    //   }, [appliedData]);
+    //     setDisplayAll(addBooks);
+    //   }, [displayAll,addBooks]);
       
 
     const handleDisplayWish = () => {
@@ -95,11 +95,14 @@ const ListedBook = () => {
     // console.log(appliedData);
 
 
+
+    
+    
+
     
     useEffect(() => {
-        const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
-        setAppliedData(getDefaultData);
-
+        // const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        // setAppliedData(getDefaultData);
         const getDefaultData1 = JSON.parse(localStorage.getItem("wish-mark")) || [];
         setAppliedWishData(getDefaultData1);
 
@@ -109,30 +112,19 @@ const ListedBook = () => {
         // if (books.length > 0) {
         // const bookAdd = books.filter(book => storeBookIds.includes(book.bookId)
 
-        // const wishAdd = books.filter(wish => storeWishIds.includes(wish.bookId))
-
-        // console.log(bookAdd);
-        // console.log(wishAdd)
-
-        // setAddBooks(bookAdd);
-        // setDisplayRead(bookAdd);
-
-
-        // setAddWish(wishAdd);
-        // setDisplayWish(wishAdd);
-
-        // }
-        // setAddBooks(bookAdd);
-
-        
-
-
-        
-    }, [])
+        // const wishAdd = books.filter(wish => storeWishIds.includes(wish.bookId))      
+    }, [appliedWishData])
     // Get local storage Data And Set State Start
 
 
 
+
+    useEffect(() => {
+        const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        setAppliedData(getDefaultData);
+        setDisplayAll(appliedData);
+
+    }, [])
 
 
 
@@ -142,8 +134,8 @@ const ListedBook = () => {
 
 
     return (
-        <div>
-            <p className="text-3xl font-bold rounded-2xl text-center bg-base-200 py-8 mt-6 mb-2">Books</p>
+        <div className="container mx-auto">
+            <p className="text-3xl font-bold rounded-2xl text-center bg-cyan-400 py-8 mt-6 mb-2 text-white">Books</p>
 
             <div className="flex justify-center items-center mb-20 ">
                 <details className="dropdown">
@@ -158,9 +150,9 @@ const ListedBook = () => {
 
             <div className=" flex" >
                 <div>
-                    <button onClick={handleDisplayRead} className={`py-3 px-6   hover:border-gray-700 ${clicked ? 'border-t-2 border-l-2 border-r-2 border-gray-500' : 'border-b-2 border-gray-700'}`}>Read Books</button>
+                    <button onClick={handleDisplayRead} className={`py-3 font-bold px-6   hover:border-gray-700 ${clicked ? 'border-t-2 border-l-2 border-r-2 border-gray-500' : 'border-b-2 border-gray-700'}`}>Read Books</button>
 
-                    <button onClick={handleDisplayWish} className={`py-3 px-6   hover:border-gray-700 ${clicked1 ? 'border-t-2 border-l-2 border-r-2 border-gray-500' : 'border-b-2 border-gray-700'}`}>Wishlist Books</button>
+                    <button onClick={handleDisplayWish} className={`py-3 px-6 font-bold   hover:border-gray-700 ${clicked1 ? 'border-t-2 border-l-2 border-r-2 border-gray-500' : 'border-b-2 border-gray-700'}`}>Wishlist Books</button>
                 </div>
 
                 <div className="border-b-2 border-gray-700 flex-1 "><div ></div></div>

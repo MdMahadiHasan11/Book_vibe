@@ -122,8 +122,8 @@ const BookDetails = () => {
 
 
             <div className="">
-                <div className="flex lg:flex-row gap-6">
-                    <div className="w-1/2 rounded-2xl flex justify-center items-center  bg-base-200">
+                <div className="flex lg:flex-row flex-col lg:gap-6">
+                    <div className="lg:w-1/2 rounded-2xl flex justify-center items-center  bg-base-200">
 
                         <img src={book1.image} className=" h-full  p-16" />
 
@@ -132,7 +132,7 @@ const BookDetails = () => {
 
                     </div>
 
-                    <div className="w-1/2">
+                    <div className="lg:w-1/2">
                         <h1 className="text-5xl font-bold mt-8">{book1.bookName}</h1>
                         <h3 className="font-medium my-5">By : {book1.author}</h3>
 

@@ -4,8 +4,8 @@ import Books from "../Books/Books";
 
 const Home = () => {
     return (
-        <div>
-            <div><Banner></Banner></div>
+        <div className="container mx-auto">
+            <div className="mt-6"><Banner></Banner></div>
 
 
 
