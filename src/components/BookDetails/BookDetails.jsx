@@ -5,9 +5,9 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
-import { saveReadBook, saveWishlist } from "../../Utility/localStorage";
+// import { saveReadBook, saveWishlist } from "../../Utility/localStorage";
 
-import { getStoreReadBook, getStoreWishlist } from "../../Utility/localStorage";
+// import { getStoreReadBook, getStoreWishlist } from "../../Utility/localStorage";
 
 const BookDetails = () => {
 
@@ -21,72 +21,95 @@ const BookDetails = () => {
     const books = useLoaderData();
     const { bookId } = useParams()
     const book1 = books.find(book => book.bookId === parseInt(bookId));
-    // console.log(book1);
 
 
-    // const storeBookIdss = getStoreReadBook();
-    // const storeWishIdss = getStoreWishlist();
+    // const storeBookIds = getStoreReadBook();
+    // const storeWishIds = getStoreWishlist();
 
-    // const [addBooksid, setAddBooksid] = useState([]);
-    // const [addWishid, setAddWishid] = useState([]);
+    const handleRead = () => {
 
-    // useEffect(() => {
-    //     const storeBookIds = getStoreReadBook();
-    //     const storeWishIds = getStoreWishlist();
-    //     // setAddBooksid(storeBookIds);
-    //     // setAddWishid(storeWishIds);
-    
-    // }, [])
-    // const storeBookIdss = localStorage.getItem('read-mark');
-    const storeBookIds = getStoreReadBook();
-        const storeWishIds = getStoreWishlist();
+        const saveData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        const exist = saveData.find(item => item.bookId == book1.bookId);
 
-
-
-
-    const handleRead = (bookId) => {
-
-      
-        const isExist = storeBookIds.find(id => id === parseInt(bookId));
-
-
-        if (!isExist) {
-     
-            saveReadBook(parseInt(bookId));
-            toast('Books Added to Read List')
-
-            // localStorage.setItem('read-mark',JSON.stringify(storeReadBook))
-
+        if (exist) {
+            toast('You have Already Read this Books')
         }
-        // if()
-        // saveReadBook(parseInt(bookId))
-        else toast('You have Already Read this Books')
-        // console.log(addBooks);
+        else {
+            saveData.push(book1);
+            localStorage.setItem("read-mark", JSON.stringify(saveData));
+            toast('Books Added to Read List')
+        }
+
 
     }
 
+
+
+    // const handleRead = (bookId) => {
+
+
+
+
+    //     const isExist = storeBookIds.find(id => id === parseInt(bookId));
+
+
+    //     if (!isExist) {
+
+    //         saveReadBook(parseInt(bookId));
+    //         toast('Books Added to Read List')
+
+    //         // localStorage.setItem('read-mark',JSON.stringify(storeReadBook))
+
+    //     }
+    //     // if()
+    //     // saveReadBook(parseInt(bookId))
+    //     else toast('You have Already Read this Books')
+    //     // console.log(addBooks);
+
+    // }
+
     const handleWishlist = () => {
+
+        const saveData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        const existRead = saveData.find(item => item.bookId == book1.bookId);
+
+        const saveData1 = JSON.parse(localStorage.getItem("wish-mark")) || [];
+        const exist = saveData1.find(item => item.bookId == book1.bookId);
+        if(existRead){
+            toast('You have Already Read this Books')
+        }
+        else if (exist) {
+            toast('You have Already Added To Wishlist')
+        }
+        else {
+            saveData1.push(book1);
+            localStorage.setItem("wish-mark", JSON.stringify(saveData1));
+            toast('Books Added To Wishlist')
+        }
+
+
+
+
+
         // saveWishlist(parseInt(bookId))
         // toast('Success Wishlist')
 
+        // const isExist = storeWishIds.find(id => id === parseInt(bookId))
+        // const isExist2 = storeBookIds.find(id => id === parseInt(bookId));
 
 
-        const isExist = storeWishIds.find(id => id === parseInt(bookId))
-        const isExist2 = storeBookIds.find(id => id === parseInt(bookId));
+        // if (!(isExist || isExist2)) {
 
+        //     saveWishlist(parseInt(bookId))
+        //     toast('Books Added To Wishlist')
 
-        if (!(isExist || isExist2)) {
+        // }
+        // else if (isExist && !(isExist2)) {
+        //     toast('You have Already Added To Wishlist')
 
-            saveWishlist(parseInt(bookId))
-            toast('Books Added To Wishlist')
+        // }
 
-        }
-        else if (isExist && !(isExist2)) {
-            toast('You have Already Added To Wishlist')
-
-        }
-
-        else toast('You have Already Read this Books')
+        // else toast('You have Already Read this Books')
 
 
     }
@@ -121,8 +144,8 @@ const BookDetails = () => {
                         <div className="flex gap-5 ">
                             <p className="font-bold"> Tag</p>
                             <div className="flex gap-10">
-                                <p className="text-green-500"># {book1.tags[0]}</p>
-                                <p className="text-green-500"># {book1.tags[1]}</p>
+                                <p className="text-green-500 bg-base-200 py-2 px-4 rounded-xl"># {book1.tags[0]}</p>
+                                <p className="text-green-500 bg-base-200 py-2 px-4 rounded-xl"># {book1.tags[1]}</p>
 
                             </div>
                         </div>
@@ -149,7 +172,7 @@ const BookDetails = () => {
 
 
                         <div className="flex gap-5">
-                            <button onClick={() => { handleRead(bookId) }} className="btn px-10  font-bold bg-green-500">Read</button>
+                            <button onClick={handleRead} className="btn px-10  font-bold bg-green-500">Read</button>
                             <button onClick={handleWishlist} className="btn bg-cyan-400  font-bold px-7">Wishlist</button>
                         </div>
                     </div>

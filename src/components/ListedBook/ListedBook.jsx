@@ -1,55 +1,71 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
-import { getStoreReadBook, getStoreWishlist } from "../../Utility/localStorage";
 import { IoIosArrowDown } from "react-icons/io";
 import DisplayShow from "../DisplayShow/DisplayShow";
+// import { useLoaderData } from "react-router-dom";
+// import { getStoreReadBook, getStoreWishlist } from "../../Utility/localStorage";
+
 
 
 const ListedBook = () => {
 
-    const books = useLoaderData();
-    const [addBooks, setAddBooks] = useState([]);
-    const [addWish, setAddWish] = useState([]);
+    // const books = useLoaderData();
+    // const [addBooks, setAddBooks] = useState([]);
+    // const [addWish, setAddWish] = useState([]);
+    // const [displayRead, setDisplayRead] = useState([]);
+    // const [displayWish, setDisplayWish] = useState([]);
 
     const [displayAll, setDisplayAll] = useState([]);
-    const [displayRead, setDisplayRead] = useState([]);
-    const [displayWish, setDisplayWish] = useState([]);
-
     const [temp, setTemp] = useState([]);
 
 
+    
+
+    
 
 
-    // clicked
+
+
+    // clicked check
     const [clicked, setClicked] = useState(false);
     const [clicked1, setClicked1] = useState(false);
 
 
+
+
+    // Two Button Handle Start
     const handleDisplayRead = () => {
         setClicked(true);
         setClicked1(false);
 
-        setDisplayAll(displayRead);
-        setTemp(displayRead);
+
+
+        setDisplayAll(appliedData);
+        setTemp(appliedData);
 
     }
+
+    // useEffect(() => {
+    //     setDisplayAll(appliedData);
+    //   }, [appliedData]);
+      
 
     const handleDisplayWish = () => {
 
         setClicked1(true);
         setClicked(false);
 
-        setDisplayAll(displayWish);
+        setDisplayAll(appliedWishData);
 
-        setTemp(displayWish);
+        setTemp(appliedWishData);
     }
-
-    console.log(clicked, 'first')
-    console.log(clicked1)
+    // Two Button Handle End
 
 
 
 
+
+
+    // sorting function start
 
     const handleDisplaySort = sort => {
         if (sort === 'rating') {
@@ -68,32 +84,52 @@ const ListedBook = () => {
         }
 
     };
+    // sorting function end
 
 
 
+
+    // Get local storage Data And Set State Start
+    const [appliedData, setAppliedData] = useState([]);
+    const [appliedWishData, setAppliedWishData] = useState([]);
+    // console.log(appliedData);
+
+
+    
     useEffect(() => {
-        const storeBookIds = getStoreReadBook();
-        const storeWishIds = getStoreWishlist();
-        if (books.length > 0) {
-            const bookAdd = books.filter(book => storeBookIds.includes(book.bookId))
+        const getDefaultData = JSON.parse(localStorage.getItem("read-mark")) || [];
+        setAppliedData(getDefaultData);
+
+        const getDefaultData1 = JSON.parse(localStorage.getItem("wish-mark")) || [];
+        setAppliedWishData(getDefaultData1);
+
+        //  setDisplayRead(appliedData);
+        // const storeBookIds = getStoreReadBook();
+        // const storeWishIds = getStoreWishlist();
+        // if (books.length > 0) {
+        // const bookAdd = books.filter(book => storeBookIds.includes(book.bookId)
+
+        // const wishAdd = books.filter(wish => storeWishIds.includes(wish.bookId))
+
+        // console.log(bookAdd);
+        // console.log(wishAdd)
+
+        // setAddBooks(bookAdd);
+        // setDisplayRead(bookAdd);
 
 
-            const wishAdd = books.filter(wish => storeWishIds.includes(wish.bookId))
+        // setAddWish(wishAdd);
+        // setDisplayWish(wishAdd);
 
-            // console.log(bookAdd);
-            // console.log(wishAdd)
+        // }
+        // setAddBooks(bookAdd);
 
-            setAddBooks(bookAdd);
-            setDisplayRead(bookAdd);
-
-
-            setAddWish(wishAdd);
-            setDisplayWish(wishAdd);
-
-        }
+        
 
 
-    }, [books])
+        
+    }, [])
+    // Get local storage Data And Set State Start
 
 
 

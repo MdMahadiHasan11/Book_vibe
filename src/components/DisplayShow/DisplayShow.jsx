@@ -33,7 +33,7 @@ const DisplayShow = ({ bookmark }) => {
 
                     </div>
 
-                    <p >
+                    <div >
                         <div className='flex gap-10 my-4'>
                             <div className='flex justify-center items-center gap-4'>
                                 <p > <FaUserFriends /></p>
@@ -44,7 +44,7 @@ const DisplayShow = ({ bookmark }) => {
                                 <p>Page:{totalPages}</p>
                             </div>
                         </div>
-                    </p>
+                    </div>
                     <div className='my-4 border-b border-gray-400 flex-1'></div>
                     <div className='flex gap-6 mb-4'>
                         <div className='rounded-2xl text-cyan-500 border bg-emerald-200 px-5 py-3'> Category : {category}</div>
