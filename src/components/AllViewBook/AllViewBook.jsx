@@ -34,7 +34,7 @@
         // Get local storage Data And Set State Start
     
         return (
-            <div>
+            <div className="container mx-auto">
                 <p className="text-3xl font-bold rounded-2xl text-center bg-cyan-400 py-8 mt-6 mb-2 text-white">All Read And Wishlist Books</p>              
     
                 <div>

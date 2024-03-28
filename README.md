@@ -1,8 +1,37 @@
-# React + Vite
+  #      MyBookshelf
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website Name: MyBookshelf
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Links
+Live Site URL: MyBookshelf
+
+
+## Features
+
+- Home
+- View Book Details
+- Store wishlist
+- Count All Reading Book
+- Reading Books page details Barchart
+- Count All View Books 
+- See All New  Books
+
+
+## Characteristics:
+
+
+- User-friendly Interface : MyBookshelf provides a clean and intuitive interface
+
+
+
+- Reading Progress Tracking :  The website enables users to track their reading progress for each book, mark books as read.
+
+
+- Wishlist Tracking :  The website enables users to track their wshlist for each book  mark books as wishlist.
+
+- Reading Barchart Progress Tracking :  The website enables users to track their reading books pages in  barchart.
+
+- New Added Books Tracking :  The website enables users to track new added  books.
+
+ 

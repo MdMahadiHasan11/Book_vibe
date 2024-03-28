@@ -116,7 +116,7 @@ const BookDetails = () => {
 
 
     return (
-        <div>
+        <div className="container mx-auto mt-6">
 
             <ToastContainer />
 
@@ -132,7 +132,7 @@ const BookDetails = () => {
 
                     </div>
 
-                    <div className="lg:w-1/2">
+                    <div className="lg:w-1/2 lg:p-1 p-6">
                         <h1 className="text-5xl font-bold mt-8">{book1.bookName}</h1>
                         <h3 className="font-medium my-5">By : {book1.author}</h3>
 
